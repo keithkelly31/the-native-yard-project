@@ -7,16 +7,14 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				error: colors.rose,
-				primary: colors.amber,
-				secondary: colors.slate,
-				success: colors.emerald
+				primary: colors.emerald,
+				secondary: colors.slate
 			},
 			fontFamily: {
-				sans: 'Nunito Variable',
+				sans: 'Courier Prime',
 				...defaultTheme.fontFamily.sans
 			}
 		}
 	},
-	plugins: []
+	plugins: [require('@tailwindcss/typography')]
 };

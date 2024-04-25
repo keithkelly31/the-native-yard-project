@@ -8,14 +8,14 @@ declare global {
 			redirect?: string;
 		}
 		interface Locals {
-			mail: any;
-			supabase: SupabaseClient;
-			supabase_admin: SupabaseClient;
-			stripe: Stripe;
-			getSession(): Promise<Session | null>;
+			// mail: any;
+			// supabase: SupabaseClient;
+			// supabase_admin: SupabaseClient;
+			// stripe: Stripe;
+			// getSession(): Promise<Session | null>;
 		}
 		interface PageData {
-			session: Session | null;
+			// session: Session | null;
 		}
 		// interface PageState {}
 		// interface Platform {}

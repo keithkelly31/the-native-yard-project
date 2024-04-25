@@ -1,9 +1,10 @@
-import { redirect } from '@sveltejs/kit';
+import { getPosts } from '../lib/utils';
 
 /** @type {import('./$types').PageServerLoad} */
-export async function load({ parent }) {
-	const { session } = await parent();
-	if (session) return redirect(307, `/member`);
+export async function load() {
+	const posts = await getPosts(null, 5);
 
-	return {};
+	return {
+		posts
+	};
 }
