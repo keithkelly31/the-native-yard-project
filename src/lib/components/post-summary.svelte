@@ -6,16 +6,22 @@
 </script>
 
 <article>
-	<a href="/post/{post.slug}">{post.title}</a>
+	<h2><a href="/post/{post.slug}">{post.title}</a></h2>
+	<p><small>{format(post.date, 'dd MMM yyyy')}</small></p>
+
+	<img src={post.imgSrc} alt={post.imgAlt} />
+	<p><small>{@html post.imgCredit}</small></p>
+
+	<h3>{post.subtitle}</h3>
+	<p>{post.summary}</p>
 
 	{#if !categoryPage}
-		<span>&middot;</span>
-		<a class="text-secondary-400 hover:text-secondary-500 text-sm" href="/{post.category}"
-			>{post.category}</a
-		>
+		<nav>
+			<ul>
+				<li>
+					<small><a href="/{post.category}">{post.category}</a></small>
+				</li>
+			</ul>
+		</nav>
 	{/if}
-
-	<span>&middot;</span>
-	<span class="text-secondary-400 text-sm">{format(post.date, 'dd MMM yyyy')}</span>
-	<p>{post.summary}</p>
 </article>

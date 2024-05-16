@@ -1,3 +1,5 @@
+import { render } from 'svelte/server';
+
 export async function getPosts(filter: Function | null = null, limit = 10) {
 	const all = import.meta.glob(`../posts/**/*.md`);
 	let raw = [];
@@ -6,7 +8,7 @@ export async function getPosts(filter: Function | null = null, limit = 10) {
 		const data = await all[post]();
 		raw.push({
 			...data.metadata,
-			content: data.default.render().html,
+			content: render(data.default, { props: {} }).html,
 			category: post.split('/')[2],
 			slug: post.split('/').pop()?.slice(0, -3)
 		});

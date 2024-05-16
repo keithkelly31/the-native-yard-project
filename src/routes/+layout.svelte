@@ -1,34 +1,47 @@
 <script>
-	import '@fontsource/courier-prime';
-	import '../app.css';
+	import Nav from '$lib/components/nav.svelte';
+	import '../app.scss';
 </script>
 
+<header>
+	<nav>
+		<ul>
+			<li><a href="/">The Native Yard Project</a></li>
+		</ul>
+
+		<Nav />
+	</nav>
+</header>
+
 <main>
-	<header class="py-12 flex justify-between items-center">
-		<a class="text-xl md:text-2xl" href="/">The Native Yard Project</a>
-	</header>
-
-	<nav>
-		<a class="hidden sm:inline mr-4" href="/planning">Planning</a>
-		<a class="hidden sm:inline mr-4" href="/plants">Plants</a>
-		<a class="hidden sm:inline mr-4" href="/wildlife">Wildlife</a>
-		<a class="mr-4" href="/resources">Resources</a>
-		<a href="/shop">Shop</a>
-	</nav>
-
-	<hr />
-
 	<slot />
-
-	<hr />
-
-	<nav>
-		<a class="mr-4" href="/privacy">Privacy</a>
-		<a class="mr-4" href="/tos">Terms</a>
-		<a class="mr-4" href="https://www.facebook.com/thenativeyardproject">Facebook</a>
-		<a class="mr-4" href="https://www.instagram.com/thenativeyardproject/">Instagram</a>
-		<a href="https://twitter.com/thenativeyard">Twitter</a>
-	</nav>
-
-	<p>&copy; The Native Yard Project. All rights reserved.</p>
 </main>
+
+<footer>
+	<nav>
+		<ul>
+			<li>&copy; The Native Yard Project. All rights reserved.</li>
+		</ul>
+		<ul>
+			<li><a class="secondary" href="/privacy">Privacy</a></li>
+			<li><a class="secondary" href="/tos">Terms</a></li>
+		</ul>
+	</nav>
+</footer>
+
+<style lang="scss">
+	@use 'sass:map';
+	@use '@picocss/pico/scss/settings';
+
+	footer nav {
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	@media screen and (min-width: map.get(settings.$breakpoints, md, breakpoint)) {
+		footer nav {
+			flex-wrap: nowrap;
+			justify-content: space-between;
+		}
+	}
+</style>
